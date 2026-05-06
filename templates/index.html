@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalaiyarasan Portfolio</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+<div id="particles-js"></div>
+
+<nav>
+    <h1>Kalaiyarasan</h1>
+
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+
+<div class="hero-text" data-aos="fade-right">
+    <p class="intro">HELLO I'M</p>
+
+    <h1>Kalaiyarasan</h1>
+
+    <h2><span id="typing"></span></h2>
+
+
+    <div class="buttons">
+        <a href="#projects" class="btn">View Projects</a>
+        <a href="#contact" class="btn-outline">Hire Me</a>
+    </div>
+</div>
+
+<div class="hero-image" data-aos="fade-left">
+    <img src="{{ url_for('static', filename='profile.jpeg') }}">
+</div>
+
+</section>
+
+<section id="about">
+<h2 class="title">About Me</h2>
+
+<div class="card" data-aos="zoom-in">
+    <p>
+        Computer Science Engineering graduate skilled in Python, Flask, JavaScript, MySQL, HTML, CSS, and Game Development. I build scalable web apps with modern UI and responsive design.
+    </p>
+</div>
+
+</section>
+
+<section id="skills">
+
+<h2 class="title">Skills</h2>
+
+<div class="skills">
+
+<div class="skill"><i class="fa-brands fa-python"></i><h3>Python</h3></div>
+<div class="skill"><i class="fa-solid fa-flask"></i><h3>Flask</h3></div>
+<div class="skill"><i class="fa-brands fa-js"></i><h3>JavaScript</h3></div>
+<div class="skill"><i class="fa-solid fa-database"></i><h3>MySQL</h3></div>
+<div class="skill"><i class="fa-brands fa-html5"></i><h3>HTML</h3></div>
+<div class="skill"><i class="fa-brands fa-css3-alt"></i><h3>CSS</h3></div>
+
+</div>
+
+</section>
+
+<section id="projects">
+
+<h2 class="title">Projects</h2>
+
+<div class="projects">
+
+{% for project in projects %}
+
+<div class="project-card" data-aos="fade-up">
+
+<h3>{{ project.title }}</h3>
+
+<p>{{ project.description }}</p>
+
+<div class="tech">
+{% for t in project.tech %}
+<span>{{ t }}</span>
+{% endfor %}
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2 class="title">Contact</h2>
+
+<form class="contact-form" data-aos="zoom-in">
+
+<input type="text" placeholder="Your Name">
+
+<input type="email" placeholder="Your Email">
+
+<textarea rows="5" placeholder="Your Message"></textarea>
+
+<button>Send Message</button>
+
+</form>
+
+</section>
+
+<footer>
+© 2026 Kalaiyarasan Portfolio
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
